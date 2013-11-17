@@ -1,0 +1,3 @@
+INDEX VERSION 1.126+C:\Users\Razvan\Documents\GitHub\MNAR-ArTouch\.metadata\.plugins\org.eclipse.jdt.core
+1152853485.index
+902530881.index
