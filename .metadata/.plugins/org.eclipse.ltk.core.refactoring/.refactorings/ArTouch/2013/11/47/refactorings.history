@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.example.mnar_task4&apos; to &apos;com.example.artouch&apos;&#x0D;&#x0A;- Original project: &apos;ArTouch&apos;&#x0D;&#x0A;- Original element: &apos;ArTouch/src/com.example.mnar_task4&apos;&#x0D;&#x0A;- Renamed element: &apos;ArTouch/src/com.example.artouch&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.example.mnar_task4&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.example.mnar_task4" name="com.example.artouch" qualified="false" references="true" stamp="1384778985803" textual="false" version="1.0"/>
+</session>
