@@ -1,0 +1,75 @@
+package com.example.artouch;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.TextView;
+
+public class SecondScreen extends Activity {
+
+	public Timer timer = new Timer(); //TAP_LIMIT second timer
+	
+	public final int TAP_LIMIT = 3;
+	public boolean tapLimitReached = false;
+	
+	
+	public TextView findTheHandlesText;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_second_screen);
+		
+		Bundle creatingFromFirstScreen = new Bundle();
+		creatingFromFirstScreen = getIntent().getExtras();
+		
+		findTheHandlesText = (TextView) findViewById(R.id.findThe);
+		
+		timer.scheduleAtFixedRate(new TimerTask() 
+		{
+//		    @Override
+//		    public void run() 
+//		    {
+//		        //Called each time when 1000 milliseconds (1 second) (the period parameter)
+//		    	if(tapLimitReached == false)
+//		    	{
+//		    		if(langSelectat < TAP_LIMIT - 1) 
+//		    			langSelectat++;
+//
+//		    		//nu intra niciodata pe aici?
+//                    else 
+//                    	langSelectat = 0;
+//		    		
+//		    		runOnUiThread(new Runnable() 
+//		    		{
+//		    			@Override
+//		    			public void run() 
+//		    			{
+//		    				lastTapCount = 0;
+//		    				languageTextView.setText(LANG_CHOICE[langSelectat] + lastTapCount);
+//		    			}
+//		    		});
+//		    	}		    	
+//		    }
+//
+//		},
+//		//Set how long before to start calling the TimerTask (in milliseconds)
+//		1000,
+//		//Set the amount of time between each execution (in milliseconds)
+//		6000);
+//		//TimerTask schimbaLimba=new SchimbaLimba(MainActivity.this); ii zic ce actiune trebuie sa faca in fiecare interval
+//       // t.scheduleAtFixedRate(schimbaLimba, 0, 3000); il programez sa inceapa
+//	}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+}

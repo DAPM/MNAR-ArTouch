@@ -6,6 +6,7 @@ import java.util.TimerTask;
 import com.example.artouch.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -21,12 +22,11 @@ public class MainActivity extends Activity {
 	
 	public Timer timer = new Timer(); //TAP_LIMIT second timer
 	public TextView languageTextView; 
-	
 		
 	public int langSelectat=-1;
 	/*
 	0=for romanian
-  	1=for english
+  	1=for english	 
  	2=for french	
 	*/
 	
@@ -53,15 +53,18 @@ public class MainActivity extends Activity {
 		    	{
 		    		if(langSelectat < TAP_LIMIT - 1) 
 		    			langSelectat++;
+
+		    		//nu intra niciodata pe aici?
                     else 
                     	langSelectat = 0;
+		    		
 		    		runOnUiThread(new Runnable() 
 		    		{
 		    			@Override
 		    			public void run() 
 		    			{
 		    				lastTapCount = 0;
-		    				languageTextView.setText(LANG_CHOICE[langSelectat] + lastTapCount);		    							    					
+		    				languageTextView.setText(LANG_CHOICE[langSelectat] + lastTapCount);
 		    			}
 		    		});
 		    	}		    	
@@ -69,12 +72,12 @@ public class MainActivity extends Activity {
 
 		},
 		//Set how long before to start calling the TimerTask (in milliseconds)
-		6000,
+		1000,
 		//Set the amount of time between each execution (in milliseconds)
 		6000);
 		//TimerTask schimbaLimba=new SchimbaLimba(MainActivity.this); ii zic ce actiune trebuie sa faca in fiecare interval
        // t.scheduleAtFixedRate(schimbaLimba, 0, 3000); il programez sa inceapa
-	}	 			
+	}	 			 
 		
 	public boolean onTouchEvent(MotionEvent event)
 	{		    
@@ -88,6 +91,9 @@ public class MainActivity extends Activity {
 				   timer.cancel();
 				   
 				   tapLimitReached = true;
+				   
+				   Intent secondScreen = new Intent(MainActivity.this, SecondScreen.class);
+				   startActivity(secondScreen);
 			   } 
 		   }
 		  

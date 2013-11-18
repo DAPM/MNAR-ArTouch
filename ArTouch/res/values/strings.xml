@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MNAR-task4</string>
+    <string name="app_name">ArTouch</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+    <string name="title_activity_second_screen">SecondScreen</string>
+    
+    <string name="left_handle">Find the left wooden handler and tap 3 times the screen.</string>
+    <string name="top_handle">Find the top wooden handler and tap 3 times the screen.</string>
+	<string name="right_handle">Find the right wooden handler and tap 3 times the screen.</string>
+    
 </resources>
