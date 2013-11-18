@@ -1,10 +1,7 @@
-package com.example.artouch;
+package com.example.mnar_task4;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
-import com.example.artouch.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -72,8 +69,8 @@ public class MainActivity extends Activity {
 		6000,
 		//Set the amount of time between each execution (in milliseconds)
 		6000);
-		//TimerTask schimbaLimba=new SchimbaLimba(MainActivity.this); ii zic ce actiune trebuie sa faca in fiecare interval
-       // t.scheduleAtFixedRate(schimbaLimba, 0, 3000); il programez sa inceapa
+		//TimerTask schimbaLimba=new SchimbaLimba(MainActivity.this);// ii zic ce actiune trebuie sa faca in fiecare interval
+       // t.scheduleAtFixedRate(schimbaLimba, 0, 3000);// il programez sa inceapa
 	}	 			
 		
 	public boolean onTouchEvent(MotionEvent event)

@@ -72,8 +72,8 @@ public class MainActivity extends Activity {
 		6000,
 		//Set the amount of time between each execution (in milliseconds)
 		6000);
-		//TimerTask schimbaLimba=new SchimbaLimba(MainActivity.this); ii zic ce actiune trebuie sa faca in fiecare interval
-       // t.scheduleAtFixedRate(schimbaLimba, 0, 3000); il programez sa inceapa
+		//TimerTask schimbaLimba=new SchimbaLimba(MainActivity.this);// ii zic ce actiune trebuie sa faca in fiecare interval
+       // t.scheduleAtFixedRate(schimbaLimba, 0, 3000);// il programez sa inceapa
 	}	 			
 		
 	public boolean onTouchEvent(MotionEvent event)
