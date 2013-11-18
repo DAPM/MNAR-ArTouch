@@ -1,0 +1,191 @@
+Multi-Touch Androïd
+
+
+
+The MotionEvent.ACTION_POINTER_DOWN and MotionEvent.ACTION_POINTER_UP are send starting with the second finger. For the first finger MotionEvent.ACTION_DOWN and MotionEvent.ACTION_UP are used.
+The getPointerCount() method on MotionEvent allows you to determine the number of pointers on the device. All events and the position of the pointers are included in the instance of MotionEvent which you receive in the onTouch() method.
+To track the touch events from multiple pointers you have to use the MotionEvent.getActionIndex() and the MotionEvent.getActionMasked() methods to identify the index of the pointer and the touch event which happened for this pointer.
+This pointer index can change over time, e.g. if one finger is lifted from the device. The stable version of a pointer is the pointer id, which can be determined with the getPointerId(pointerIndex) method from the MotionEvent object.
+
+
+
+
+@Override
+public boolean onTouchEvent(MotionEvent event) {
+
+    // get pointer index from the event object
+    int pointerIndex = event.getActionIndex();
+
+    // get pointer ID
+    int pointerId = event.getPointerId(pointerIndex);
+
+    // get masked (not specific to a pointer) action
+    int maskedAction = event.getActionMasked();
+
+    switch (maskedAction) {
+
+    case MotionEvent.ACTION_DOWN:
+    case MotionEvent.ACTION_POINTER_DOWN: {
+      // TODO use data
+      break;
+    }
+    case MotionEvent.ACTION_MOVE: { // a pointer was moved
+      // TODO use data
+      break;
+    }
+    case MotionEvent.ACTION_UP:
+    case MotionEvent.ACTION_POINTER_UP:
+    case MotionEvent.ACTION_CANCEL: {
+      // TODO use data
+      break;
+    }
+    }
+    invalidate();
+
+    return true;
+}
+
+
+Example with multiple fingers : 
+
+package com.vogella.android.multitouch;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PointF;
+import android.util.AttributeSet;
+import android.util.SparseArray;
+import android.view.MotionEvent;
+import android.view.View;
+
+public class MultitouchView extends View {
+
+  private static final int SIZE = 60;
+
+  private SparseArray<PointF> mActivePointers;
+  private Paint mPaint;
+  private int[] colors = { Color.BLUE, Color.GREEN, Color.MAGENTA,
+      Color.BLACK, Color.CYAN, Color.GRAY, Color.RED, Color.DKGRAY,
+      Color.LTGRAY, Color.YELLOW };
+
+  private Paint textPaint;
+
+
+  public MultitouchView(Context context, AttributeSet attrs) {
+    super(context, attrs);
+    initView();
+  }
+
+  private void initView() {
+    mActivePointers = new SparseArray<PointF>();
+    mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    // set painter color to a color you like
+    mPaint.setColor(Color.BLUE);
+    mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+    textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    textPaint.setTextSize(20);
+  }
+
+  @Override
+  public boolean onTouchEvent(MotionEvent event) {
+
+    // get pointer index from the event object
+    int pointerIndex = event.getActionIndex();
+
+    // get pointer ID
+    int pointerId = event.getPointerId(pointerIndex);
+
+    // get masked (not specific to a pointer) action
+    int maskedAction = event.getActionMasked();
+
+    switch (maskedAction) {
+
+    case MotionEvent.ACTION_DOWN:
+    case MotionEvent.ACTION_POINTER_DOWN: {
+      // We have a new pointer. Lets add it to the list of pointers
+
+      PointF f = new PointF();
+      f.x = event.getX(pointerIndex);
+      f.y = event.getY(pointerIndex);
+      mActivePointers.put(pointerId, f);
+      break;
+    }
+    case MotionEvent.ACTION_MOVE: { // a pointer was moved
+      for (int size = event.getPointerCount(), i = 0; i < size; i++) {
+        PointF point = mActivePointers.get(event.getPointerId(i));
+        if (point != null) {
+          point.x = event.getX(i);
+          point.y = event.getY(i);
+        }
+      }
+      break;
+    }
+    case MotionEvent.ACTION_UP:
+    case MotionEvent.ACTION_POINTER_UP:
+    case MotionEvent.ACTION_CANCEL: {
+      mActivePointers.remove(pointerId);
+      break;
+    }
+    }
+    invalidate();
+
+    return true;
+  }
+
+  @Override
+  protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
+
+    // draw all pointers
+    for (int size = mActivePointers.size(), i = 0; i < size; i++) {
+      PointF point = mActivePointers.valueAt(i);
+      if (point != null)
+        mPaint.setColor(colors[i % 9]);
+      canvas.drawCircle(point.x, point.y, SIZE, mPaint);
+    }
+    canvas.drawText("Total pointers: " + mActivePointers.size(), 10, 40 , textPaint);
+  }
+
+} 
+
+Add this view to the layout of your activity.
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.vogella.android.multitouch.MultitouchView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</RelativeLayout> 
+
+Your generated activity can remain the same.
+
+package com.vogella.android.multitouch;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+
+public class MainActivity extends Activity {
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+  }
+
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.activity_main, menu);
+    return true;
+  }
+
+} 
+
+If you run your application you will be able to draw on the screen with your fingers. Every device has an upper limit how many pointers are supported, test out how many simultaneous pointers your device supports.
