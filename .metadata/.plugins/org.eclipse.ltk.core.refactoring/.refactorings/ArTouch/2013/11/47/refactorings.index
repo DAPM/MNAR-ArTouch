@@ -1,1 +1,21 @@
 1384778985803	Rename package 'com.example.mnar_task4'
+1384875855513	Rename type 'MainActivity'
+1384875895153	Rename type 'SelectLanguageScreen'
+1384875911065	Rename type 'HowToUseScreen'
+1384875919926	Rename type 'SecondScreen'
+1384875994668	Rename resource 'activity_main.xml'
+1384876012967	Rename resource 'activity_second_screen.xml'
+1384876211165	Delete element
+1384876308172	Rename type 'SelectLanguageScreen'
+1384876321370	Rename type 'TutorialScreen'
+1384876330137	Rename resource 'activity_select_language_screen.xml'
+1384876338546	Rename resource 'activity_tutorial_screen.xml'
+1384877598208	Delete element
+1384883103151	Copy folder
+1384883482641	Delete element
+1384885093326	Delete element
+1384885103415	Delete element
+1384885153310	Delete element
+1384885159372	Delete element
+1384890409860	Rename type 'NavigationActivity'
+1384890429532	Rename resource 'activity_navigation.xml'
