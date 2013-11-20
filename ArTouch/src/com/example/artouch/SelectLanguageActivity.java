@@ -1,5 +1,6 @@
 package com.example.artouch;
 
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -7,6 +8,7 @@ import com.example.artouch.R;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -91,6 +93,32 @@ public class SelectLanguageActivity extends Activity
 				   timer.cancel();
 				   
 				   tapLimitReached = true;
+				   
+				   //Change application's language
+				   Configuration c = new Configuration(getResources().getConfiguration());
+				   switch (langSelectat)
+				   {				   		
+				   		case 0:
+				   		{				   			
+							c.locale = new Locale("ro", "RO");
+				   			break;
+				   		}
+				   		case 1:
+				   		{
+				   			c.locale = Locale.ENGLISH;						
+				   			break;
+				   		}
+				   		case 2:
+				   		{
+							c.locale = Locale.FRENCH;
+							break;
+				   		}
+				   		default:
+				   		{
+				   			c.locale = Locale.ENGLISH;
+				   			break;
+				   		}
+				   }
 				   
 				   Intent secondScreen = new Intent(SelectLanguageActivity.this, TutorialActivity.class);
 				   startActivity(secondScreen);
