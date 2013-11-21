@@ -23,6 +23,7 @@ public class TutorialActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Utils.setFullScreenMode(this);
 		setContentView(R.layout.activity_tutorial);
 		
 		Bundle creatingFromFirstScreen = new Bundle();

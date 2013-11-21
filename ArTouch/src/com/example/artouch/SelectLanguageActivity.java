@@ -42,6 +42,7 @@ public class SelectLanguageActivity extends Activity
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
+		Utils.setFullScreenMode(this);
 		setContentView(R.layout.activity_select_language);
 	    languageTextView = (TextView)findViewById(R.id.textLimba);	    
 		

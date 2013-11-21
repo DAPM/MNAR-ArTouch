@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Utils.setFullScreenMode(this);
 		setContentView(R.layout.activity_main);
 		
 		addItemsOnSpinners();	

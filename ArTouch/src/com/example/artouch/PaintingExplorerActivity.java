@@ -9,6 +9,7 @@ public class PaintingExplorerActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Utils.setFullScreenMode(this);
 		setContentView(R.layout.activity_painting_explorer);
 	}
 
