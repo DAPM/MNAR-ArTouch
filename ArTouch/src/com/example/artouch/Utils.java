@@ -30,7 +30,6 @@ public class Utils
 		theModifiedActivity.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		theModifiedActivity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		Log.d("bootAction", "the app has started because of boot flaging");
 	}
 
 }
