@@ -4,6 +4,9 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+     <!-- Added to start the app when the tablet boot's up -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="18" />
@@ -39,6 +42,17 @@
             android:name="com.example.artouch.PaintingExplorerActivity"
             android:label="@string/title_activity_navigation" >
         </activity>
+        
+        <!-- Added to start the app when the tablet boot's up -->
+        <receiver android:enabled="true" android:name="com.example.artouch.BootUpReceiver"
+        android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+
+        <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </receiver>    
+        
     </application>
 
 </manifest>

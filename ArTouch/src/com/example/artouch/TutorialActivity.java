@@ -1,7 +1,10 @@
 package com.example.artouch;
 
+
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.widget.TextView;
@@ -65,6 +68,8 @@ public class TutorialActivity extends Activity {
 					
 					//here, we must enter the next screen
 					Toast.makeText(this, "Welcome to the third screen", Toast.LENGTH_SHORT).show();
+					Intent thirdScreen = new Intent(TutorialActivity.this,PaintingExplorerActivity.class);
+					startActivity(thirdScreen);
 				}
 			} 
 		}
