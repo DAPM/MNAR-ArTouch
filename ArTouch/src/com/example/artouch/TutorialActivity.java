@@ -29,8 +29,7 @@ public class TutorialActivity extends Activity {
 		Utils.setFullScreenMode(this);
 		setContentView(R.layout.activity_tutorial);
 		
-		Bundle creatingFromFirstScreen = new Bundle();
-		creatingFromFirstScreen = getIntent().getExtras();
+		Bundle creatingFromFirstScreen = getIntent().getExtras();
 		
 		findTheHandlesText = (TextView) findViewById(R.id.findHandlesText);
 		
