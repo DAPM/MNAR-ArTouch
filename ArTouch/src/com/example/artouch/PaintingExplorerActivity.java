@@ -1,7 +1,17 @@
 package com.example.artouch;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.ref.WeakReference;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapRegionDecoder;
+import android.graphics.Rect;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.os.CountDownTimer;
@@ -12,23 +22,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PaintingExplorerActivity extends Activity {
+public class PaintingExplorerActivity extends Activity{
 	
-	TextView countdownTimerText;
-	ImageView[] zones;
+    TextView countdownTimerText;
+//	ImageView[] zones;
 	final int numberOfZones = 3;
 	int end; // a 'checker' to see if every defined zone was visited
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_painting_explorer2);
+		setContentView(R.layout.activity_painting_explorer3);
 		
 		//I add the pictures I need
-		for (int i=1; i<=numberOfZones; i++){
-			ImageView img = (ImageView) findViewById(getResources().getIdentifier("imageView"+i, "id", getPackageName()));
-			img.setImageResource(getResources().getIdentifier("poza"+i, "drawable", getPackageName()));
-		}
+		
+			ImageView img = (ImageView) findViewById(getResources().getIdentifier("imageView4", "id", getPackageName()));
+			img.setImageResource(getResources().getIdentifier("hqimage4", "drawable", getPackageName()));
+		
 		
 		//countdown timer
 		countdownTimerText = (TextView) findViewById(R.id.countdownText);		
