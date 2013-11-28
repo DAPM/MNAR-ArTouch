@@ -19,7 +19,6 @@ public class MainActivity extends Activity {
 	private Spinner languageSpinner, screenSpinner;
 	private Button btnSubmit;
 
-	/* Commit and push test Catalin */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
