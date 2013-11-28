@@ -25,20 +25,29 @@ import android.widget.Toast;
 public class PaintingExplorerActivity extends Activity{
 	
     TextView countdownTimerText;
-//	ImageView[] zones;
+	ImageView[] zones;
 	final int numberOfZones = 3;
 	int end; // a 'checker' to see if every defined zone was visited
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_painting_explorer3);
+		setContentView(R.layout.activity_painting_explorer2);
+		
+		// hq image tests
+//			ImageView img = (ImageView) findViewById(getResources().getIdentifier("imageView4", "id", getPackageName()));
+//			img.setBackgroundResource(getResources().getIdentifier("hqimage4", "drawable", getPackageName()));
+		
 		
 		//I add the pictures I need
-		
-			ImageView img = (ImageView) findViewById(getResources().getIdentifier("imageView4", "id", getPackageName()));
-			img.setImageResource(getResources().getIdentifier("hqimage4", "drawable", getPackageName()));
-		
+
+		for (int i=1; i<=numberOfZones; i++){
+
+			      ImageView img = (ImageView) findViewById(getResources().getIdentifier("imageView"+i, "id", getPackageName()));
+
+			      img.setImageResource(getResources().getIdentifier("poza"+i, "drawable", getPackageName()));
+
+			    }
 		
 		//countdown timer
 		countdownTimerText = (TextView) findViewById(R.id.countdownText);		
