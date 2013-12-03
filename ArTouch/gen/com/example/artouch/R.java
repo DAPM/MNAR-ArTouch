@@ -41,17 +41,18 @@ public final class R {
         public static final int poza3=0x7f020007;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b000a;
-        public static final int countdownText=0x7f0b0003;
-        public static final int findHandlesText=0x7f0b0009;
-        public static final int imageView1=0x7f0b0004;
-        public static final int imageView2=0x7f0b0005;
+        public static final int action_settings=0x7f0b000b;
+        public static final int countdownText=0x7f0b0004;
+        public static final int findHandlesText=0x7f0b000a;
+        public static final int imageView1=0x7f0b0005;
+        public static final int imageView2=0x7f0b0007;
         public static final int imageView3=0x7f0b0006;
-        public static final int imageView4=0x7f0b0007;
+        public static final int imageView4=0x7f0b0008;
         public static final int languageSelection=0x7f0b0000;
+        public static final int screen=0x7f0b0003;
         public static final int screenSelection=0x7f0b0001;
         public static final int startButton=0x7f0b0002;
-        public static final int textLimba=0x7f0b0008;
+        public static final int textLimba=0x7f0b0009;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
