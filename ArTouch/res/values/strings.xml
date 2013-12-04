@@ -8,6 +8,7 @@
     <string name="left_handle">Find the left wooden handler and tap 3 times the screen.</string>
     <string name="top_handle">Find the top wooden handler and tap 3 times the screen.</string>
     <string name="right_handle">Find the right wooden handler and tap 3 times the screen.</string>
+    <string name="language">en</string>
     
     <string name="title_activity_main">Settings Screen</string>
     <string name="title_activity_navigation_screen">NavigationScreen</string>

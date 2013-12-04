@@ -9,5 +9,5 @@
     <string name="top_handle">Trouvez le cadre en bois en haut et tapez 3 fois sur l\'ecran.</string>
     <string name="right_handle">Trouvez le cadre en bois a la droite et tapez 3 fois sur l\'ecran.</string>
     <string name="title_activity_main">Settings screen</string>
-
+	<string name="language">fr</string>
 </resources>
