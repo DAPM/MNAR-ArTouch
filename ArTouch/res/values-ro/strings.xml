@@ -9,5 +9,5 @@
     <string name="top_handle">Gasiti cadrul din lemn din partea de sus si apasati de 3 ori pe ecran.</string>
     <string name="right_handle">Gasiti cadrul din lemn din partea dreapta si apasati de 3 ori pe ecran.</string>
     <string name="title_activity_main">Settings screen</string>
-
+	<string name="language">ro</string>
 </resources>
