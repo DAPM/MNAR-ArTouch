@@ -2,8 +2,7 @@ MNAR-ArTouch
 ============
 
 The team:
-
-* BanicaDaniela
+* Banica Daniela
 * Razvan Balan
 * Yann Gimenez
 * Berbescu Alexandru
