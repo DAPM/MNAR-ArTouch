@@ -1,4 +1,5 @@
-H1. Documentation
+Documentation
+=============
 
 Folder Guercion contains the application for Guercion's painting.
 This is portrait only application.
@@ -8,18 +9,19 @@ Folder Sginac contains the applicaiton for Signac's painting
 This is landscape only application.
 Full screen.
 
-H1. General architecture
+General architecture
+====================
 
 The application is a linear interactive image slideshow with sound.
 The main flow is:
-* Show splash screen
-* Show language chooser screen
-* Show application usage screen
-* Show calibration screen
-* Show painting screen with voice over explanations
-* Show painting screen with music
-* Only for Signac show "the movie - zoom-out - zoom-in"
-* Go to Show language choose screen
+1. Show splash screen
+2. Show language chooser screen
+3. Show application usage screen
+4. Show calibration screen
+5. Show painting screen with voice over explanations
+6. Show painting screen with music
+7. Only for Signac show "the movie - zoom-out - zoom-in"
+8. Go to (2) Show language choose screen
 
 Note: nice to have an about screen - to show the team members
 

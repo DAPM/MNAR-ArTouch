@@ -18,7 +18,6 @@ The team:
 Project Structure
 =================
 
-\-  
-  |-\ Guercino
-  |
-  |-\ Signac
+Guercino - application for Guercino
+
+Signac - application for Signac
