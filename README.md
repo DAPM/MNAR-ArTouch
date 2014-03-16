@@ -13,3 +13,12 @@ The team:
 * Rautu Dorin
 * Razvan Gheorghe
 * Vlad Olteanu
+
+
+Project Structure
+=================
+
+\-  
+  |-\ Guercino
+  |
+  |-\ Signac
