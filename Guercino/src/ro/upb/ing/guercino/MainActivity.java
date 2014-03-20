@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.PointF;
 import android.graphics.RectF;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -26,7 +27,7 @@ import android.widget.ImageView;
 public class MainActivity extends Activity {
 	
 	// Set the tap delay in milliseconds
-    protected static final long TAP_MAX_DELAY = 500L;
+    protected static final long TAP_MAX_DELAY = 1000L;
  // Radius to capture tap within bound
     private final static int RADIUS = 50;
  // Store all points with tap count
@@ -38,13 +39,28 @@ public class MainActivity extends Activity {
 	private int SCREEN_NUMBER = 0;
 	private int LANGUAGE = 0;
 	private Bitmap[] FLAGS = new Bitmap[]{null, null, null};
+	private MediaPlayer  mMediaPlayer=new MediaPlayer();
+
+	
+	@Override
+	protected void onDestroy() {
+	    super.onDestroy();
+	    
+		mRunnableHandler.removeCallbacks(mSplashScreenRunnable);
+		mRunnableHandler.removeCallbacks(mLanguageScreenRunnable);
+
+	    
+	    if (mMediaPlayer != null) {
+	        mMediaPlayer.release();
+	        mMediaPlayer = null;
+	    }
+
+	}
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		setContentView(R.layout.activity_main);
 		
 		if (Build.VERSION.SDK_INT < 16) { //ye olde method
 		    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -52,13 +68,16 @@ public class MainActivity extends Activity {
 			// Jellybean and up, new hotness
 		    View decorView = getWindow().getDecorView();
 		    // Hide the status bar.
-		    int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+		    int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN | 
+		    		        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | 
+		    		        View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
 		    decorView.setSystemUiVisibility(uiOptions);
 		    // Remember that you should never show the action bar if the
 		    // status bar is hidden, so hide that too if necessary.
 		    ActionBar actionBar = getActionBar();
 		    actionBar.hide();
 		}
+		setContentView(R.layout.activity_main);
 		
 		showSplashScreen(5000);
 	}
@@ -78,17 +97,16 @@ public class MainActivity extends Activity {
 		
 	@Override
 	public boolean onTouchEvent(MotionEvent motionEvent) {
-		System.out.println(motionEvent);
 		
         switch (motionEvent.getAction()) {
         case MotionEvent.ACTION_DOWN:
-            _tapCounter.resetCounter();
+        	_tapCounter.resetCounter();
             float x = motionEvent.getX();
             float y = motionEvent.getY();
 
             if (_lastTapArea != null) {
                 if (_lastTapArea.contains(x, y)) {
-                    if (_lastTapCount < 3) {
+                    if (_lastTapCount < 2) {
                         _lastTapCount++;
                     } else {
                     	//3 taps in the same area
