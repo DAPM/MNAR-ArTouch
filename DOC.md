@@ -35,3 +35,8 @@ The image resolution should be under 2MB, if possible the exact resolution of th
 The application will be in 3 languages: French, English, Romanian. We will use internationalization correctly for this.
 
 The applicaiton must containt testing part.
+
+Icons
+=====
+
+http://android-ui-utils.googlecode.com/hg/asset-studio/dist/icons-launcher.html#foreground.space.trim=1&foreground.space.pad=0&foreColor=33b5e5%2C0&crop=0&backgroundShape=bevel&backColor=ffffff%2C100
