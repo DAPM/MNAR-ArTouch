@@ -77,4 +77,114 @@ Process soudtrack
 
 http://audacity.sourceforge.net/?lang=ro
 
-PLEASE PRODUCE ONLY MP3 FORMAT
+PLEASE PRODUCE FILES ONLY IN MP3 FORMAT
+
+Testing
+=======
+
+The AVD configuration is:
+```
+avd.ini.encoding=ISO-8859-1
+target=android-17
+path=/Users/dragos/.android/avd/AVD_for_Evolio_8x.avd
+path.rel=avd/AVD_for_Evolio_8x.avd
+```
+
+The image configuration is:
+```
+avd.ini.encoding=ISO-8859-1
+abi.type=x86
+avd.ini.encoding=ISO-8859-1
+disk.dataPartition.size=200M
+hw.accelerometer=no
+hw.audioInput=yes
+hw.battery=yes
+hw.cpu.arch=x86
+hw.dPad=no
+hw.device.hash2=MD5:1aeb8c86fb261677dad914b4644dc9b8
+hw.device.manufacturer=User
+hw.device.name=Evolio 8x
+hw.gps=no
+hw.gpu.enabled=yes
+hw.keyboard=no
+hw.lcd.density=160
+hw.mainKeys=yes
+hw.ramSize=1024
+hw.sdCard=no
+hw.sensors.orientation=yes
+hw.sensors.proximity=no
+hw.trackBall=no
+image.sysdir.1=system-images/android-17/x86/
+skin.dynamic=yes
+skin.name=1024x768
+skin.path=1024x768
+tag.display=Default
+tag.id=default
+vm.heapSize=32
+```
+
+Voice over text
+===============
+
+SCREEN 0 - Splash screen
+
+[ ] TODO - find a short 10-20 sec intro music (1 x MP3 file)
+
+SCREEN 1 - Language chooser
+
+[X] DONE - Ro, Fr, En with acknowledge (6 x MP3 files)
+
+SCREEN 2 - Application usage
+
+[ ] TODO - detailed description of application usage and screen content. Ro, Fr, En (3 x MP3 files)
+
+E.g. Ro:
+```
+Aplicatia contine 5 ecrane. Ascultati cu atentie instructiunile.
+Modul de interactiune este: apasati de 3 ori pe ecran pentru 
+a naviga la ecranul urmator sau modul explorare in care puteti 
+atinge ecranul cu 1 sau mai multe degete pentru a explora 
+continutul ecranului.
+
+Urmatoarele 3 ecrane sunt pentru orientare. Trebuie sa gasiti reprele staga,
+sus si dreapta de pe marginea tabletei si sa apasati de 3 ori pe ecran 
+dupa ce le-ati gasit.
+
+Ecranul 4 va permite sa descoperiti continutul tabloului. Folositi 1 sau mai 
+multe degete pentru a naviga pe suprafata tabletei. Veti primi mai multe instructiuni 
+inainte de a incepe navigarea in ecranul 4.
+
+Ecranul 5 va permite sa descoperiti muzicalitatea tabloului. Folositi 1 sau mai 
+multe degete pentru a naviga pe suprafata tabletei. Veti primi mai multe instructiuni 
+inainte de a incepe navigarea in ecranul 4.
+```
+
+SCREEN 3, 4, 5 - Orientation
+
+[ ] TODO - identify orientation: left side, top, right side. Ro, Fr, En (3 x MP3 files)
+
+```
+Reformulat textul. Aici vor fi stanga 1 pct de silicon, 
+sus 2 pcte de silicon, dreapta 3 pcte de silicon.
+```
+
+SCREEN 6 - Painting description
+
+[ ] TODO - describe the characters in each zone, 3 zones. Ro, Fr, En (3 x MP3 files)
+
+MNAR va fruniza textele finale.
+
+E.g. Ro:
+```
+Zona 1 - In partea de sus a tabloului se afla un inger care canta la vioara.
+
+Zona 2 - In partea drepata jos se gaseste Sf. Francisc.
+
+Zona 3 - In partea stanga se gaseste Sf. Benedict.
+```
+
+SCREEN 7 - Painting with music
+
+[ ] TODO - extract music from YouTube (3 x MP3 files)
+
+
