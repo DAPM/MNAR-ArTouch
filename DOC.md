@@ -40,3 +40,41 @@ Icons
 =====
 
 http://android-ui-utils.googlecode.com/hg/asset-studio/dist/icons-launcher.html#foreground.space.trim=1&foreground.space.pad=0&foreColor=33b5e5%2C0&crop=0&backgroundShape=bevel&backColor=ffffff%2C100
+
+YouTube soundtrack
+==================
+
+Guercino - 3 personaje: Sf. Benedict, Sf. Francisc si Ingerul muzicant. Compozitori: Cavalieri, Cavalli, Bertali.
+
+Sf. Benedict - min 0.46- 1.10
+https://www.youtube.com/watch?v=2lCAqDGaHLg
+
+Sf. Francisc - min 37.24- 37.52
+https://www.youtube.com/watch?v=ClhpvfW9KIc
+
+Ingerul muzicant - min 0.42- 1.22
+https://www.youtube.com/watch?v=t8p9rolham8
+
+Signac - 3 planuri: femeia in rosu, barcile, muntii (le scriu prescurtat, stiu ca contin mult mai multe). Compozitor: Debussy
+
+1. femeia min. 0.57-1.24 sau 1.25-1.52 sau 3.10 - 3.41
+2. barcile min. 4.36-5.01 sau 5.02 - 5.30
+3. muntii si cerul min 7.41-8.14 sau 8.00-8.30
+https://www.youtube.com/watch?v=s-PtlUOnkBo    (e acelasi link pentru toate trei, aceeasi suita, piese diferite)
+
+mai am un link pentru intreg, care e aceeasi suita de Debussy, doar ca nu e cantata de pian la patru maini, ci de orchestra, orchestra sugerand intreg tabloul min. 0.06-0.38
+https://www.youtube.com/watch?v=JSO8Z6YmZtY
+
+How to extract soundtrack
+-------------------------
+
+http://www.wikihow.com/Rip-Music-from-YouTube
+http://www.digitaltrends.com/web/how-to-download-music-from-youtube/#!AZrUf
+http://www.listentoyoutube.com/
+
+Process soudtrack
+-----------------
+
+http://audacity.sourceforge.net/?lang=ro
+
+PLEASE PRODUCE ONLY MP3 FORMAT
