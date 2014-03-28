@@ -47,17 +47,26 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int chosen0=0x7f040005;
         public static final int chosen1=0x7f040006;
         public static final int chosen2=0x7f040007;
-        public static final int enlefth=0x7f040008;
-        public static final int enrighth=0x7f040009;
-        public static final int entoph=0x7f04000a;
-        public static final int frlefth=0x7f04000b;
-        public static final int frrighth=0x7f04000c;
-        public static final int frtoph=0x7f04000d;
-        public static final int intro=0x7f04000e;
-        public static final int rolefth=0x7f04000f;
-        public static final int rorighth=0x7f040010;
-        public static final int rotoph=0x7f040011;
-        public static final int woman=0x7f040012;
+        public static final int en2left=0x7f040008;
+        public static final int en2right=0x7f040009;
+        public static final int en2up=0x7f04000a;
+        public static final int enlefth=0x7f04000b;
+        public static final int enrighth=0x7f04000c;
+        public static final int entoph=0x7f04000d;
+        public static final int fr2left=0x7f04000e;
+        public static final int fr2right=0x7f04000f;
+        public static final int fr2up=0x7f040010;
+        public static final int frlefth=0x7f040011;
+        public static final int frrighth=0x7f040012;
+        public static final int frtoph=0x7f040013;
+        public static final int intro=0x7f040014;
+        public static final int ro2left=0x7f040015;
+        public static final int ro2right=0x7f040016;
+        public static final int ro2up=0x7f040017;
+        public static final int rolefth=0x7f040018;
+        public static final int rorighth=0x7f040019;
+        public static final int rotoph=0x7f04001a;
+        public static final int woman=0x7f04001b;
     }
     public static final class string {
         public static final int app_name=0x7f060000;

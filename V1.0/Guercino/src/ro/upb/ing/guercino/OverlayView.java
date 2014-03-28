@@ -516,7 +516,7 @@ public class OverlayView extends View {
 							public void onCompletion(MediaPlayer mp) {
 								// Explic cum functioneaza aplicatia
 								mMusicFader.stopMP3();
-								mMusicFader.load("intro", false);
+								mMusicFader.load(MY_LANGUAGE[LANGUAGE]+"3instr", false);
 								mMusicFader.playMP3();
 								SCREEN_NUMBER++;
 								invalidate();
@@ -579,17 +579,17 @@ public class OverlayView extends View {
 			switch(SCREEN_NUMBER){
 				case 3:
 					mMusicFader.stopMP3();
-					mMusicFader.load(MY_LANGUAGE[LANGUAGE]+"lefth", false);
+					mMusicFader.load(MY_LANGUAGE[LANGUAGE]+"2left", false);
 					mMusicFader.playMP3();
 					break;
 				case 4:
 					mMusicFader.stopMP3();
-			        mMusicFader.load(MY_LANGUAGE[LANGUAGE]+"toph",false);
+			        mMusicFader.load(MY_LANGUAGE[LANGUAGE]+"2up",false);
 					mMusicFader.playMP3();
 					break;
 				case 5:
 					mMusicFader.stopMP3();
-			        mMusicFader.load(MY_LANGUAGE[LANGUAGE]+"righth", false);
+			        mMusicFader.load(MY_LANGUAGE[LANGUAGE]+"2right", false);
 					mMusicFader.playMP3();
 					break;
 			}
