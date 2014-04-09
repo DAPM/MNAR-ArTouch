@@ -79,6 +79,15 @@ http://audacity.sourceforge.net/?lang=ro
 
 PLEASE PRODUCE FILES ONLY IN MP3 FORMAT
 
+Live Hardware
+=============
+
+MNAR will run the application on 
+Nexus 7 (7") 1GB RAM, V4.1 (base), v4.4.2 (upgradable)
+
+Configure AVD accordingly!
+
+
 Testing
 =======
 
