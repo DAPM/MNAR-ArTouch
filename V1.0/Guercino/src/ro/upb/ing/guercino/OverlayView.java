@@ -228,6 +228,7 @@ public class OverlayView extends View {
 		    case MotionEvent.ACTION_POINTER_UP:
 		    case MotionEvent.ACTION_CANCEL: {
 		      mActivePointers.remove(pointerId);
+		    	processUp();
 		      break;
 		    }
 	    }
@@ -236,6 +237,15 @@ public class OverlayView extends View {
 		return true;
 	}
 	
+	private void processUp() {
+		switch(SCREEN_NUMBER){
+		case 8:
+			//fix bug music does not stop when touch stops
+			playZone(-1);
+			break;
+		}
+	}
+
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
@@ -259,9 +269,7 @@ public class OverlayView extends View {
 				break;
 			case 2:
 				//Application usage screen
-				cx = (mWidth - mSplashImage.getWidth()) >> 1;
-			    cy = (mHeight - mSplashImage.getHeight()) >> 1;
-			    canvas.drawBitmap(mSplashImage, cx, cy, null);
+			    canvas.drawBitmap(mPaintingImage, null, dest, null);
 				break;
 			case 3:
 				//Left side orientation
@@ -634,7 +642,7 @@ public class OverlayView extends View {
 	public void showSplashScreen(int delayMillis) {
 		mRunnableHandler.removeCallbacks(mSplashScreenRunnable);
 		invalidate();
-		mMusicFader.load("intro", false);
+		mMusicFader.load("angel", false);
 		mMusicFader.play(1000);
 		mRunnableHandler.postDelayed(mSplashScreenRunnable, Math.max(mMusicFader.getMP3Duration(), delayMillis));
 	}	
