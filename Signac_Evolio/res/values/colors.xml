@@ -1,7 +1,0 @@
-<resources>
-
-    <color name="black_overlay">#FF000000</color>
-    <color name="transparent_overlay">#00000000</color>
-    <color name="gray_overlay">#FF808080</color>
-    
-</resources>
