@@ -5,20 +5,25 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="19"
         android:targetSdkVersion="19" />
 
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" ></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+        android:largeHeap="true" 
+        android:hardwareAccelerated="true">
         <activity
             android:name="ro.upb.ing.guercino.MainActivity"
+            android:noHistory="true" 
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/FullscreenTheme" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:hardwareAccelerated="true" android:immersive="true" android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

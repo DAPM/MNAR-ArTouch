@@ -20,44 +20,65 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class color {
         public static final int black_overlay=0x7f050000;
-        public static final int blue_overlay=0x7f050001;
-        public static final int transparent_overlay=0x7f050002;
+        public static final int gray_overlay=0x7f050002;
+        public static final int transparent_overlay=0x7f050001;
     }
     public static final class drawable {
         public static final int arrow=0x7f020000;
         public static final int france=0x7f020001;
-        public static final int fundal=0x7f020002;
-        public static final int guercino=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
-        public static final int romania=0x7f020005;
-        public static final int splash=0x7f020006;
-        public static final int united=0x7f020007;
+        public static final int guercino=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int romania=0x7f020004;
+        public static final int splash=0x7f020005;
+        public static final int united=0x7f020006;
     }
     public static final class id {
-        public static final int imageMainView=0x7f080000;
+        public static final int FrameLayout1=0x7f080000;
         public static final int multitouchMask=0x7f080001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
     }
     public static final class raw {
-        public static final int choose0=0x7f040000;
-        public static final int choose1=0x7f040001;
-        public static final int choose2=0x7f040002;
-        public static final int chosen0=0x7f040003;
-        public static final int chosen1=0x7f040004;
-        public static final int chosen2=0x7f040005;
-        public static final int enlefth=0x7f040006;
-        public static final int enrighth=0x7f040007;
-        public static final int entoph=0x7f040008;
-        public static final int frlefth=0x7f040009;
-        public static final int frrighth=0x7f04000a;
-        public static final int frtoph=0x7f04000b;
-        public static final int insect=0x7f04000c;
-        public static final int intro=0x7f04000d;
-        public static final int rolefth=0x7f04000e;
-        public static final int rorighth=0x7f04000f;
-        public static final int rotoph=0x7f040010;
+        public static final int angel=0x7f040000;
+        public static final int beforemusic0=0x7f040001;
+        public static final int beforemusic1=0x7f040002;
+        public static final int beforemusic2=0x7f040003;
+        public static final int benedict=0x7f040004;
+        public static final int choose0=0x7f040005;
+        public static final int choose1=0x7f040006;
+        public static final int choose2=0x7f040007;
+        public static final int chosen0=0x7f040008;
+        public static final int chosen1=0x7f040009;
+        public static final int chosen2=0x7f04000a;
+        public static final int en2left=0x7f04000b;
+        public static final int en2right=0x7f04000c;
+        public static final int en2up=0x7f04000d;
+        public static final int enz0=0x7f04000e;
+        public static final int enz1=0x7f04000f;
+        public static final int enz2=0x7f040010;
+        public static final int explain0=0x7f040011;
+        public static final int explain1=0x7f040012;
+        public static final int explain2=0x7f040013;
+        public static final int fr2left=0x7f040014;
+        public static final int fr2right=0x7f040015;
+        public static final int fr2up=0x7f040016;
+        public static final int francisc=0x7f040017;
+        public static final int frz0=0x7f040018;
+        public static final int frz1=0x7f040019;
+        public static final int frz2=0x7f04001a;
+        public static final int navigation0=0x7f04001b;
+        public static final int navigation1=0x7f04001c;
+        public static final int navigation2=0x7f04001d;
+        public static final int ro2left=0x7f04001e;
+        public static final int ro2right=0x7f04001f;
+        public static final int ro2up=0x7f040020;
+        public static final int roz0=0x7f040021;
+        public static final int roz1=0x7f040022;
+        public static final int roz2=0x7f040023;
+        public static final int thx0=0x7f040024;
+        public static final int thx1=0x7f040025;
+        public static final int thx2=0x7f040026;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
@@ -83,7 +104,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     
- API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 

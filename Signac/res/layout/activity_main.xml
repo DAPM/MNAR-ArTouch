@@ -1,8 +1,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000000"
+    android:id="@+id/FrameLayout1"
+    style="@style/FullscreenTheme"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
     tools:context="ro.upb.ing.signac.MainActivity" >
 
     <!--
@@ -11,18 +13,13 @@
          TextureView, etc.
     -->
 
-    <!--
-         This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows.
-    -->
-
-    <ImageView
-        android:id="@+id/imageMainView"
-    	android:layout_width="match_parent"
-    	android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
-        android:src="@drawable/splash" />
-    
+    <ro.upb.ing.signac.OverlayView
+        android:id="@+id/multitouchMask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_overlay"
+        android:clickable="true"
+        android:fitsSystemWindows="false"
+        android:focusableInTouchMode="true" />
 
 </FrameLayout>

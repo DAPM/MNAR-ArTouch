@@ -1,7 +1,10 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FrameLayout1"
+    style="@style/FullscreenTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context="ro.upb.ing.guercino.MainActivity" >
 
     <!--
@@ -10,28 +13,13 @@
          TextureView, etc.
     -->
 
-  <FrameLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imageMainView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black_overlay"
-        android:fitsSystemWindows="true"
-        android:scaleType="centerInside"
-        android:src="@drawable/splash" />
-
     <ro.upb.ing.guercino.OverlayView
         android:id="@+id/multitouchMask"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/transparent_overlay"
+        android:background="@color/gray_overlay"
         android:clickable="true"
-        android:fitsSystemWindows="true"
-        android:focusableInTouchMode="true"
-        android:visibility="invisible" />
+        android:fitsSystemWindows="false"
+        android:focusableInTouchMode="true" />
 
-	</FrameLayout>
-</RelativeLayout>
+</FrameLayout>
