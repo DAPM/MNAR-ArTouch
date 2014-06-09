@@ -56,6 +56,7 @@ public class MusicHandler {
 	public void stopMP3(){
 		if(mediaPlayer != null && mediaPlayer.isPlaying()){
 			mediaPlayer.stop();
+			mediaPlayer.reset();
 			mediaPlayer.release();
 			mediaPlayer = null;
 		}

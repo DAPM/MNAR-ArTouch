@@ -1,7 +1,6 @@
 package ro.upb.ing.guercino;
 
 import java.util.ArrayList;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,7 +8,6 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.Rect;
@@ -51,8 +49,6 @@ public class OverlayView extends View {
 	private Bitmap mPaintingImage;
     private Bitmap mSplashImage;
 	private Bitmap[] FLAGS = new Bitmap[] { null, null, null };
-	private Bitmap bMap;
-    private Matrix[] mat = new Matrix[]{new Matrix(), new Matrix()};
     private Rect dest;
 
 	private final static String[] MY_LANGUAGE = new String[]{"ro", "fr", "en"};
@@ -85,7 +81,6 @@ public class OverlayView extends View {
         FLAGS[0] = BitmapFactory.decodeResource(context.getResources(), R.drawable.romania);
 		FLAGS[1] = BitmapFactory.decodeResource(context.getResources(), R.drawable.france);
 		FLAGS[2] = BitmapFactory.decodeResource(context.getResources(), R.drawable.united);	
-		bMap = BitmapFactory.decodeResource(context.getResources(), R.drawable.arrow);
         mMusicFader = new MusicHandler(context);
         
 	}
@@ -93,14 +88,11 @@ public class OverlayView extends View {
 	public void closeCleanup(){
 		mRunnableHandler.removeCallbacks(null);
 		mMusicFader.cleanUp();
-		
 		mPaintingImage = null;
 		mSplashImage = null;
 		FLAGS[0] = null;
 		FLAGS[1] = null;
-		FLAGS[2] = null;
-		bMap = null;
-		
+		FLAGS[2] = null;		
 	}
 	
 	@Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
@@ -116,11 +108,6 @@ public class OverlayView extends View {
 		super.onSizeChanged(xNew, yNew, xOld, yOld);
 		mWidth = xNew;
 		mHeight = yNew;
-
-		mat[0].postRotate(90, bMap.getWidth() >> 1, bMap.getHeight() >> 1);
-		mat[0].postTranslate(mWidth - bMap.getWidth() >> 1, 0);
-		mat[1].postRotate(180, bMap.getWidth() >> 1, bMap.getHeight() >> 1);
-		mat[1].postTranslate(mWidth - bMap.getWidth(), mHeight - bMap.getHeight() >> 1);
 
 		dest = new Rect(0, 0, mWidth, mHeight);
 
@@ -228,7 +215,7 @@ public class OverlayView extends View {
 		    case MotionEvent.ACTION_POINTER_UP:
 		    case MotionEvent.ACTION_CANCEL: {
 		      mActivePointers.remove(pointerId);
-		    	processUp();
+		      if (mActivePointers.size()==0) processUp();
 		      break;
 		    }
 	    }
@@ -239,6 +226,10 @@ public class OverlayView extends View {
 	
 	private void processUp() {
 		switch(SCREEN_NUMBER){
+		case 7:
+			//fix bug voice does not stop when touch stops
+			playZone(-1);
+			break;
 		case 8:
 			//fix bug music does not stop when touch stops
 			playZone(-1);
@@ -264,24 +255,6 @@ public class OverlayView extends View {
 				cx = (mWidth - FLAGS[LANGUAGE].getWidth()) >> 1;
 			    cy = (mHeight - FLAGS[LANGUAGE].getHeight()) >> 1;
 			    canvas.drawBitmap(FLAGS[LANGUAGE], cx, cy, null);
-				break;
-			case 2:
-				//Application usage screen
-			    canvas.drawBitmap(mPaintingImage, null, dest, null);
-				break;
-			case 3:
-				//Left side orientation
-				cx = 0;
-			    cy = (mHeight - bMap.getHeight()) >> 1;
-				canvas.drawBitmap(bMap, cx, cy, null);
-				break;
-			case 4:
-				//Top orientation
-				canvas.drawBitmap(bMap, mat[0], null);
-				break;
-			case 5:
-				//Right side orientation
-				canvas.drawBitmap(bMap, mat[1], null);
 				break;
 			case 6:
 			    canvas.drawBitmap(mPaintingImage, null, dest, null);
@@ -524,49 +497,23 @@ public class OverlayView extends View {
 								mMusicFader.stopMP3();
 								mMusicFader.load("explain"+LANGUAGE, false);
 								mMusicFader.playMP3();
-								SCREEN_NUMBER++;
+								SCREEN_NUMBER=6;
 								invalidate();
 								mMusicFader.mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 											public void onCompletion(MediaPlayer mp) {
-												SCREEN_NUMBER++;
+												SCREEN_NUMBER=7;
 												invalidate();
-												mRunnableHandler.removeCallbacks(mLTRDetectRunnable);
-												mRunnableHandler.postDelayed(mLTRDetectRunnable, 10);
 											}
 										});
 							}
 						});
 				break;
-			case 3:
-				mRunnableHandler.removeCallbacks(mLTRDetectRunnable);
-				SCREEN_NUMBER++;
-				mRunnableHandler.postDelayed(mLTRDetectRunnable, 10);
-				break;
-			case 4:
-				mRunnableHandler.removeCallbacks(mLTRDetectRunnable);
-				SCREEN_NUMBER++;
-				mRunnableHandler.postDelayed(mLTRDetectRunnable, 10);
-				break;
-			case 5:
-				mRunnableHandler.removeCallbacks(mLTRDetectRunnable);
-				//Play explanation and then set visible overlay layer
-				SCREEN_NUMBER++;
-				invalidate();
-				mMusicFader.stopMP3();
-				mMusicFader.load("navigation"+LANGUAGE, false);
-				mMusicFader.playMP3();
-				mMusicFader.mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-					public void onCompletion(MediaPlayer mp) {
-						SCREEN_NUMBER++;
-						invalidate();
-					}
-				});
-				break;
 			case 7:
+				SCREEN_NUMBER=6;
+				invalidate();
 				mMusicFader.stopMP3();
 				mMusicFader.load("beforemusic"+LANGUAGE, false);
 				mMusicFader.playMP3();
-				SCREEN_NUMBER=6;
 				mMusicFader.mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 					public void onCompletion(MediaPlayer mp) {
 						SCREEN_NUMBER=8;
@@ -575,10 +522,11 @@ public class OverlayView extends View {
 				});
 				break;
 			case 8:
+				SCREEN_NUMBER=6;
+				invalidate();
 				mMusicFader.stopMP3();
 				mMusicFader.load("thx"+LANGUAGE, false);
 				mMusicFader.playMP3();
-				SCREEN_NUMBER=6;
 				mMusicFader.mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 					public void onCompletion(MediaPlayer mp) {
 						SCREEN_NUMBER=0;
@@ -592,33 +540,6 @@ public class OverlayView extends View {
 	}
 	
 	Handler mRunnableHandler = new Handler();
-	
-	
-	Runnable mLTRDetectRunnable = new Runnable(){
-        
-		@Override
-		public void run(){
-			switch(SCREEN_NUMBER){
-				case 3:
-					mMusicFader.stopMP3();
-					mMusicFader.load(MY_LANGUAGE[LANGUAGE]+"2left", false);
-					mMusicFader.playMP3();
-					break;
-				case 4:
-					mMusicFader.stopMP3();
-			        mMusicFader.load(MY_LANGUAGE[LANGUAGE]+"2up",false);
-					mMusicFader.playMP3();
-					break;
-				case 5:
-					mMusicFader.stopMP3();
-			        mMusicFader.load(MY_LANGUAGE[LANGUAGE]+"2right", false);
-					mMusicFader.playMP3();
-					break;
-			}
-			mRunnableHandler.removeCallbacks(mLTRDetectRunnable);
-			mRunnableHandler.postDelayed(mLTRDetectRunnable, Math.max(mMusicFader.getMP3Duration() + 3000, 10000));
-		}
-	};
 	
 	Runnable mLanguageScreenRunnable = new Runnable() {
 		@Override
