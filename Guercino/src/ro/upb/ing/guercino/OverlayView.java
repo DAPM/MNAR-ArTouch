@@ -447,13 +447,22 @@ public class OverlayView extends View {
 			if(_playZone != zone){
 				switch(zone){
 				case 0:
-					mMusicFader.fadeTo("angel", 100);
+//					mMusicFader.fadeTo("angel", 100);
+					mMusicFader.stopMP3();
+					mMusicFader.load("angel", false);
+					mMusicFader.playMP3();
 					break;
 				case 1:
-					mMusicFader.fadeTo("francisc", 100);
+//					mMusicFader.fadeTo("francisc", 100);
+					mMusicFader.stopMP3();
+					mMusicFader.load("francisc", false);
+					mMusicFader.playMP3();
 					break;
 				case 2:
-					mMusicFader.fadeTo("benedict", 100);
+//					mMusicFader.fadeTo("benedict", 100);
+					mMusicFader.stopMP3();
+					mMusicFader.load("benedict", false);
+					mMusicFader.playMP3();
 					break;
 				}
 				_playZone = zone;
@@ -551,6 +560,7 @@ public class OverlayView extends View {
 			mMusicFader.mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 				public void onCompletion(MediaPlayer mp) {
 					mRunnableHandler.removeCallbacks(mLanguageScreenRunnable);
+					mMusicFader.stopMP3();
 					if (SCREEN_NUMBER == 1){
 						mRunnableHandler.postDelayed(mLanguageScreenRunnable, 3000);
 					}
