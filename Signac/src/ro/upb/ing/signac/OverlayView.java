@@ -452,13 +452,22 @@ public class OverlayView extends View {
 			if(_playZone != zone){
 				switch(zone){
 				case 0:
-					mMusicFader.fadeTo("background", 100);
+//					mMusicFader.fadeTo("background", 100);
+					mMusicFader.stopMP3();
+					mMusicFader.load("background", false);
+					mMusicFader.playMP3();
 					break;
 				case 1:
-					mMusicFader.fadeTo("boats", 100);
+//					mMusicFader.fadeTo("boats", 100);
+					mMusicFader.stopMP3();
+					mMusicFader.load("boats", false);
+					mMusicFader.playMP3();
 					break;
 				case 2:
-					mMusicFader.fadeTo("woman", 100);
+//					mMusicFader.fadeTo("woman", 100);
+					mMusicFader.stopMP3();
+					mMusicFader.load("woman", false);
+					mMusicFader.playMP3();
 					break;
 				}
 				_playZone = zone;
