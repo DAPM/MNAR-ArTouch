@@ -1,4 +1,4 @@
-MNAR-ArTouch
+MNAR-ARTtouch
 ============
 
 The team:
